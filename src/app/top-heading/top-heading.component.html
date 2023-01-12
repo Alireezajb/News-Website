@@ -1,0 +1,58 @@
+<div>
+    <form>
+
+        <select class="form-select" aria-label="Default select example" #countryselect
+            (change)="onChange(countryselect.value)">
+            <option selected>Select your Country</option>
+            <option *ngFor="let country of Country;" [value]="country.value">{{country.name}}</option>
+
+        </select>
+
+
+
+    </form>
+</div>
+<div class="container  d-flex align-items-center justify-content-center  header border  ">
+
+    <div class="box1 w-75  position-relative">
+        <img [src]="TopHeadingDisplay[0].urlToImage" class="img-fluid">
+        <img src="https://th.bing.com/th/id/R.940a03eb69955c7ce44a4fc13e56519c?rik=rDzoLqP1721FiQ&riu=http%3a%2f%2fhdqwalls.com%2fwallpapers%2fweb-site-under-construction-6s.jpg&ehk=qfNF%2bT5i%2b61Am98jUjGvP5AzHN5TxC9G6fZ6s5%2fYZXY%3d&risl=&pid=ImgRaw&r=0"
+            class="img-fluid" *ngIf="TopHeadingDisplay[0].urlToImage === null">
+
+        <div>
+            <p>{{TopHeadingDisplay[0].title}}</p>
+            <i class="bi bi-person-fill" *ngIf="TopHeadingDisplay[0].author"></i>
+            <small>{{TopHeadingDisplay[0].author}}</small>
+        </div>
+    </div>
+    <div class="box2 w-50">
+        <div class="box2-1 position-relative ">
+            <img [src]="TopHeadingDisplay[1].urlToImage" class="img-fluid">
+            <img src="https://th.bing.com/th/id/R.940a03eb69955c7ce44a4fc13e56519c?rik=rDzoLqP1721FiQ&riu=http%3a%2f%2fhdqwalls.com%2fwallpapers%2fweb-site-under-construction-6s.jpg&ehk=qfNF%2bT5i%2b61Am98jUjGvP5AzHN5TxC9G6fZ6s5%2fYZXY%3d&risl=&pid=ImgRaw&r=0"
+                class="img-fluid" *ngIf="TopHeadingDisplay[1].urlToImage === null">
+            <p>{{TopHeadingDisplay[1].title}}</p>
+
+        </div>
+        <div class="box2-2 position-relative">
+            <img [src]="TopHeadingDisplay[2].urlToImage" class="img-fluid">
+            <img src="https://th.bing.com/th/id/R.940a03eb69955c7ce44a4fc13e56519c?rik=rDzoLqP1721FiQ&riu=http%3a%2f%2fhdqwalls.com%2fwallpapers%2fweb-site-under-construction-6s.jpg&ehk=qfNF%2bT5i%2b61Am98jUjGvP5AzHN5TxC9G6fZ6s5%2fYZXY%3d&risl=&pid=ImgRaw&r=0"
+                class="img-fluid" *ngIf="TopHeadingDisplay[2].urlToImage === null">
+            <p>{{TopHeadingDisplay[2].title}}</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="container mt-5">
+    <h4>Top Healine News</h4>
+    <div class="row">
+        <div *ngFor="let item of TopHeadingDisplay" class="col-lg-3 mt-3 mb-3">
+            <div class="box">
+                <img [src]="item.urlToImage" width="100%">
+                <h5 class="mt-2 mb-2">{{item.title}}</h5>
+                <p>{{item.description}}</p>
+                <a [href]="item.url" target="_blank" class="btn btn-dark">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>

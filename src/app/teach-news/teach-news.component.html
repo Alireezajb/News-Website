@@ -1,0 +1,61 @@
+<div>
+    <form>
+
+        <select class="form-select" aria-label="Default select example" #countryselect
+            (change)="onChange(countryselect.value)">
+            <option selected>Select your Country</option>
+            <option *ngFor="let country of Country;" [value]="country.value">{{country.name}}</option>
+
+        </select>
+
+
+
+    </form>
+</div>
+
+<div class="container  d-flex align-items-center justify-content-center  header border ">
+    <div class="box1 w-75  position-relative">
+        <img [src]="TopTechDisplay[0].urlToImage" class="img-fluid">
+        <img src="https://th.bing.com/th/id/R.940a03eb69955c7ce44a4fc13e56519c?rik=rDzoLqP1721FiQ&riu=http%3a%2f%2fhdqwalls.com%2fwallpapers%2fweb-site-under-construction-6s.jpg&ehk=qfNF%2bT5i%2b61Am98jUjGvP5AzHN5TxC9G6fZ6s5%2fYZXY%3d&risl=&pid=ImgRaw&r=0"
+            class="img-fluid" *ngIf="TopTechDisplay[0].urlToImage === null">
+
+        <div>
+            <p>{{TopTechDisplay[0].title}}</p>
+            <i class="bi bi-person-fill" *ngIf="TopTechDisplay[0].author"></i>
+
+            <small>{{TopTechDisplay[0].author}}</small>
+        </div>
+    </div>
+    <div class="box2 w-50">
+        <div class="box2-1 position-relative ">
+            <img [src]="TopTechDisplay[1].urlToImage" class="img-fluid">
+            <img src="https://th.bing.com/th/id/R.940a03eb69955c7ce44a4fc13e56519c?rik=rDzoLqP1721FiQ&riu=http%3a%2f%2fhdqwalls.com%2fwallpapers%2fweb-site-under-construction-6s.jpg&ehk=qfNF%2bT5i%2b61Am98jUjGvP5AzHN5TxC9G6fZ6s5%2fYZXY%3d&risl=&pid=ImgRaw&r=0"
+                class="img-fluid" *ngIf="TopTechDisplay[1].urlToImage === null">
+            <p>{{TopTechDisplay[1].title}}</p>
+
+        </div>
+        <div class="box2-2 position-relative">
+            <img [src]="TopTechDisplay[2].urlToImage" class="img-fluid">
+
+            <p>{{TopTechDisplay[2].title}}</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="container mt-5">
+    <h4>Top Technology News</h4>
+    <div class="row">
+        <div *ngFor="let item of TopTechDisplay" class="col-lg-3 mt-3 mb-3">
+            <div class="box">
+                <img [src]="item.urlToImage" width="100%">
+                <img src="https://th.bing.com/th/id/R.940a03eb69955c7ce44a4fc13e56519c?rik=rDzoLqP1721FiQ&riu=http%3a%2f%2fhdqwalls.com%2fwallpapers%2fweb-site-under-construction-6s.jpg&ehk=qfNF%2bT5i%2b61Am98jUjGvP5AzHN5TxC9G6fZ6s5%2fYZXY%3d&risl=&pid=ImgRaw&r=0"
+                    class="img-fluid" *ngIf="item.urlToImage === null">
+
+                <h5 class="mt-2 mb-2">{{item.title}}</h5>
+                <p>{{item.description}}</p>
+                <a [href]="item.url" target="_blank" class="btn btn-dark">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
